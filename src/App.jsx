@@ -22,7 +22,11 @@ function App() {
 			<p>There are {bikeRentals.length} bike rentals.</p>
 			<h2>pigeon maps</h2>
 			<Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
-				<Marker width={50} anchor={[50.879, 4.6997]} />
+				{bikeRentals.map((bikeRental, i) => {
+					return (
+				<Marker key={i} width={50} anchor={[bikeRental.location.latitude, bikeRental.location.longitude]} />
+					);
+				})}
 			</Map>
 			<h2>all bikes</h2>
 			<div className="bikeRentals">
