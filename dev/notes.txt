@@ -4,7 +4,9 @@
 		- x fetch all networks (bike rentals) and display in list "{name} {location.city}
 		- x understand filtering fields
 	- .. experiment with and understand Pigeon Maps: https://pigeon-maps.js.org/docs
-		- .. do first example
+		- x do first example
+		- .. create immediate search field
+			- .. make search which shows the search keywords on screen
 		- create examples with Karte, Marker, ZoomControl, Overlay
 	- look at this:
 		- https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API

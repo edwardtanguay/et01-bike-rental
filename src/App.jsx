@@ -7,24 +7,35 @@ const bikeRentalUrl = 'http://api.citybik.es/v2/networks';
 
 function App() {
 	const [bikeRentals, setBikeRentals] = useState([]);
+	const [filteredBikeRentals, setFilteredBikeRentals] = useState([]);
+	const [searchText, setSearchText] = useState('');
 
 	useEffect(() => {
 		(async () => {
 			const _bikeRentals = (await axios.get(bikeRentalUrl)).data.networks;
-      console.log(_bikeRentals)
+			console.log(_bikeRentals);
 			setBikeRentals(_bikeRentals);
+			setFilteredBikeRentals(_bikeRentals);
 		})();
 	}, []);
 
 	return (
 		<div className="App">
 			<h1>Bike Rental App</h1>
-			<p>There are {bikeRentals.length} bike rentals.</p>
+			<p>There are {filteredBikeRentals.length} bike rentals.</p>
 			<h2>pigeon maps</h2>
+      <input value={searchText} onChange={(e) => setSearchText(e.target.value)} /> {searchText}
 			<Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
-				{bikeRentals.map((bikeRental, i) => {
+				{filteredBikeRentals.map((bikeRental, i) => {
 					return (
-				<Marker key={i} width={50} anchor={[bikeRental.location.latitude, bikeRental.location.longitude]} />
+						<Marker
+							key={i}
+							width={50}
+							anchor={[
+								bikeRental.location.latitude,
+								bikeRental.location.longitude
+							]}
+						/>
 					);
 				})}
 			</Map>
