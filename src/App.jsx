@@ -19,12 +19,18 @@ function App() {
 		})();
 	}, []);
 
+  const handleSearch = (e) => {
+    const _searchText = e.target.value;
+
+    setSearchText(_searchText);
+  }
+
 	return (
 		<div className="App">
 			<h1>Bike Rental App</h1>
 			<p>There are {filteredBikeRentals.length} bike rentals.</p>
 			<h2>pigeon maps</h2>
-      <input value={searchText} onChange={(e) => setSearchText(e.target.value)} /> {searchText}
+      <input value={searchText} onChange={(e) => handleSearch(e)} /> {searchText}
 			<Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
 				{filteredBikeRentals.map((bikeRental, i) => {
 					return (
