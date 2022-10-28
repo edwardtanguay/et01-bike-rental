@@ -1,7 +1,8 @@
 - .. bike rental app
 	- x set up a minimal Vite React site
-	- .. explore and understand bike API: https://api.citybik.es/v2/
-		- .. fetch all networks (bike rentals) and display in list "{name} {location.city}
+	- x explore and understand bike API: https://api.citybik.es/v2/
+		- x fetch all networks (bike rentals) and display in list "{name} {location.city}
+		- x understand filtering fields
 	- experiment with and understand Pigeon Maps: https://pigeon-maps.js.org/docs
 		- create examples with Karte, Marker, ZoomControl, Overlay
 	- look at this:
