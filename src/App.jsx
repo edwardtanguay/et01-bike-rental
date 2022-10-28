@@ -13,7 +13,6 @@ function App() {
 	useEffect(() => {
 		(async () => {
 			const _bikeRentals = (await axios.get(bikeRentalUrl)).data.networks;
-			console.log(_bikeRentals);
 			setBikeRentals(_bikeRentals);
 			setFilteredBikeRentals(_bikeRentals);
 		})();
@@ -21,7 +20,9 @@ function App() {
 
   const handleSearch = (e) => {
     const _searchText = e.target.value;
-
+    const _filteredBikeRentals = bikeRentals.filter(m => m.name.toLowerCase().includes(_searchText.toLowerCase()));
+console.log(_filteredBikeRentals);
+    setFilteredBikeRentals([..._filteredBikeRentals]);
     setSearchText(_searchText);
   }
 
@@ -47,7 +48,7 @@ function App() {
 			</Map>
 			<h2>all bikes</h2>
 			<div className="bikeRentals">
-				{bikeRentals.map((bikeRental, i) => {
+				{filteredBikeRentals.map((bikeRental, i) => {
 					return (
 						<div className="bikeRental" key={i}>
 							{bikeRental.name} {bikeRental.location.city}
