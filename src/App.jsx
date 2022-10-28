@@ -11,6 +11,7 @@ function App() {
 	useEffect(() => {
 		(async () => {
 			const _bikeRentals = (await axios.get(bikeRentalUrl)).data.networks;
+      console.log(_bikeRentals)
 			setBikeRentals(_bikeRentals);
 		})();
 	}, []);
