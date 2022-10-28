@@ -20,7 +20,7 @@ function App() {
 			<p>There are {bikeRentals.length} bike rentals.</p>
 			<div className="bikeRentals">
 				{bikeRentals.map((bikeRental, i) => {
-					return <div className="bikeRental" key={i}>nnn</div>;
+          return <div className="bikeRental" key={i}>{bikeRental.name} {bikeRental.location.city}</div>;
 				})}
 			</div>
 		</div>
